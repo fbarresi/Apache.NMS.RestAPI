@@ -1,4 +1,4 @@
-# # <img src="https://activemq.apache.org/assets/img/activemq_logo_icon_border.png" alt="logo" style="width:128px;"/> Apache.NMS.RestAPI
+# <img src="https://activemq.apache.org/assets/img/activemq_logo_icon_border.png" alt="logo" style="width:128px;"/> Apache.NMS.RestAPI
 
 
 __Unofficial__ REST API to Apache NMS
@@ -9,17 +9,13 @@ The Apache NMS Api already offers really good client libraries and in ActiveMQ A
 
 This project share the same goals.
 
->Goals of REST Interface
+>## Goals of REST Interface
+>
 >Why would you want to use Apache ActiveMQ Artemis's REST interface? What are the goals of the REST interface?
-
 >- Easily usable by machine-based (code) clients.
-
 >- Zero client footprint. We want Apache ActiveMQ Artemis to be usable by any client/programming language that has an adequate HTTP client library. You shouldn't have to download, install, and configure a special library to interact with Apache ActiveMQ Artemis.
-
 >- Lightweight interoperability. The HTTP protocol is strong enough to be our message exchange protocol. Since interactions are RESTful the HTTP uniform interface provides all the interoperability you need to communicate between different languages, platforms, and even messaging implementations that choose to implement the same RESTful interface as Apache ActiveMQ Artemis (i.e. the REST-* effort.)
-
 >- No envelope (e.g. SOAP) or feed (e.g. Atom) format requirements. You shouldn't have to learn, use, or parse a specific XML document format in order to send and receive messages through Apache ActiveMQ Artemis's REST interface.
-
 >- Leverage the reliability, scalability, and clustering features of Apache ActiveMQ Artemis on the back end without sacrificing the simplicity of a REST interface.
 
 ## Ok, but why?
