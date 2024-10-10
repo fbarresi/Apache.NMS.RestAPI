@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apache.NMS.RestAPI", "Apache.NMS.RestAPI\Apache.NMS.RestAPI.csproj", "{E1FCF3CF-EE67-4F0F-A36A-4DCC49E6DA79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apache.NMS.RestAPI.Logic", "Apache.NMS.RestAPI.Logic\Apache.NMS.RestAPI.Logic.csproj", "{95275CF9-0F6A-4B5B-BB3D-7846BF49297A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apache.NMS.RestAPI.Interfaces", "Apache.NMS.RestAPI.Interfaces\Apache.NMS.RestAPI.Interfaces.csproj", "{2C38D33D-332C-4884-BF2F-4A16F23D9A44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apache.NMS.RestAPI.Tests", "Apache.NMS.RestAPI.Tests\Apache.NMS.RestAPI.Tests.csproj", "{8FD6941E-FB7B-4159-A209-B0492499403C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1FCF3CF-EE67-4F0F-A36A-4DCC49E6DA79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1FCF3CF-EE67-4F0F-A36A-4DCC49E6DA79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1FCF3CF-EE67-4F0F-A36A-4DCC49E6DA79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1FCF3CF-EE67-4F0F-A36A-4DCC49E6DA79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95275CF9-0F6A-4B5B-BB3D-7846BF49297A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95275CF9-0F6A-4B5B-BB3D-7846BF49297A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95275CF9-0F6A-4B5B-BB3D-7846BF49297A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95275CF9-0F6A-4B5B-BB3D-7846BF49297A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C38D33D-332C-4884-BF2F-4A16F23D9A44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C38D33D-332C-4884-BF2F-4A16F23D9A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C38D33D-332C-4884-BF2F-4A16F23D9A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C38D33D-332C-4884-BF2F-4A16F23D9A44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FD6941E-FB7B-4159-A209-B0492499403C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FD6941E-FB7B-4159-A209-B0492499403C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FD6941E-FB7B-4159-A209-B0492499403C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FD6941E-FB7B-4159-A209-B0492499403C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
