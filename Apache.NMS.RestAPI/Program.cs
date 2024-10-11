@@ -15,24 +15,7 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 
 //Log
 
-var loggingDirectory = builder.Configuration.GetValue(typeof(string), "LoggingDirectory") as string ?? "";
-
-if (!Directory.Exists(loggingDirectory))
-{
-    Directory.CreateDirectory(loggingDirectory);
-}
-
-builder.Host
-    .UseSerilog((ctx, lc) => 
-        lc
-            .WriteTo.Console(outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
-            .WriteTo.File(Path.Combine(loggingDirectory,"Api-.log"), 
-                rollingInterval: RollingInterval.Day, 
-                rollOnFileSizeLimit:true,
-                fileSizeLimitBytes:100*1024*1024,
-                retainedFileTimeLimit: TimeSpan.FromDays(15),
-                outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
-    );
+builder.Host.UseSerilog((ctx, lc) => lc.ReadFrom.Configuration(ctx.Configuration));
 
 // Add services to the container.
 
