@@ -1,3 +1,4 @@
+using Apache.NMS.RestAPI.Interfaces;
 using Apache.NMS.RestAPI.Interfaces.Services;
 using Apache.NMS.RestAPI.Interfaces.Settings;
 using Microsoft.AspNetCore.Mvc;
@@ -21,19 +22,19 @@ builder.Host.UseSerilog((ctx, lc) => lc.ReadFrom.Configuration(ctx.Configuration
 
 //Options
 
-builder.Services.AddOptions<MessageBusSettings>()
-    .BindConfiguration("MessageBusSettings")
+builder.Services.AddOptions<BusManagerSettings>()
+    .BindConfiguration("BusManagerSettings")
     .ValidateDataAnnotations()
     .ValidateOnStart();
-builder.Services.AddSingleton(resolver => resolver.GetRequiredService<IOptions<MessageBusSettings>>().Value);
+builder.Services.AddSingleton(resolver => resolver.GetRequiredService<IOptions<BusManagerSettings>>().Value);
 
 //Background services
 
-builder.Services.AddSingleton<MessageBusService>();
-builder.Services.AddSingleton<IHostedService, MessageBusService>(
-    serviceProvider => serviceProvider.GetService<MessageBusService>());
-builder.Services.AddSingleton<IBus, MessageBusService>(
-    serviceProvider => serviceProvider.GetService<MessageBusService>());
+builder.Services.AddSingleton<MessageBusManagerService>();
+builder.Services.AddSingleton<IHostedService, MessageBusManagerService>(
+    serviceProvider => serviceProvider.GetService<MessageBusManagerService>());
+builder.Services.AddSingleton<IBusManager, MessageBusManagerService>(
+    serviceProvider => serviceProvider.GetService<MessageBusManagerService>());
 
 
 // 
