@@ -11,5 +11,6 @@ namespace Apache.NMS.RestAPI.Interfaces.Settings
         public string Name { get; set; }
         public int DeliveryMode { get; set; } = 1;
         public TimeSpan RequestTimeout { get; set; } = TimeSpan.FromSeconds(5);
+        public TimeSpan ReceiveTimeout { get; set; } = TimeSpan.FromSeconds(5);
     }
 }

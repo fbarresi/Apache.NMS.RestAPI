@@ -1,6 +1,5 @@
 using Apache.NMS.RestAPI.Interfaces;
 using Apache.NMS.RestAPI.Interfaces.DTOs;
-using Apache.NMS.RestAPI.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Apache.NMS.RestAPI.Controllers;
@@ -24,28 +23,28 @@ public class DataController : ControllerBase
     {
         logger.LogInformation("Received: {MessageDto}", messageDto.ToString());
         var messageBus = busManager.GetMessageBusByName(bus);
-        var destination = busManager.GetDestinationByName(messageDto.Destination);
+        var destination = busManager.GetDestinationByName(messageDto.Destination) ?? messageDto.Destination;
         return messageBus.Send(destination, messageDto.Payload);
     }
     
     [HttpPost]
     [Route("{bus}/request")]
-    public Task Request([FromRoute]string bus, [FromBody]RequestMessageDto messageDto)
+    public Task<string> Request([FromRoute]string bus, [FromBody]RequestMessageDto messageDto)
     {
         logger.LogInformation("Received: {MessageDto}", messageDto.ToString());
         var messageBus = busManager.GetMessageBusByName(bus);
-        var destination = busManager.GetDestinationByName(messageDto.Destination);
+        var destination = busManager.GetDestinationByName(messageDto.Destination) ?? messageDto.Destination;
         var replyDestination = messageDto.ReplyToType == ReplyTo.DestinationName ? busManager.GetDestinationByName(messageDto.ReplyTo) : destination;
         return messageBus.Request(destination, messageDto.Payload, messageDto.ReplyToType == ReplyTo.TemporaryQueue, replyDestination);
     }
     
-    // [HttpGet]
-    // public async IAsyncEnumerable<int> Get()
-    // {
-    //     for (int i = 0; i < 10; i++)
-    //     {
-    //         yield return i;
-    //         await Task.Delay(1000);
-    //     }
-    // }
+    [HttpPost]
+    [Route("{bus}/subscribe")]
+    public IAsyncEnumerable<string> Subscribe([FromRoute]string bus, [FromBody]SubscribeMessageDto messageDto, CancellationToken token)
+    {
+        var destination = busManager.GetDestinationByName(messageDto.Destination) ?? messageDto.Destination;
+        var messageBus = busManager.GetMessageBusByName(bus);
+        return messageBus.Subscribe(destination, messageDto.NumberOfEvents, messageDto.Timeout, token);
+    }
 }
+
