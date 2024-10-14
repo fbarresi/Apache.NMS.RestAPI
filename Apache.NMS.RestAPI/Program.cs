@@ -83,7 +83,7 @@ app.MapGet("/health", () => "Ok!");
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Space API V1");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "NSM API V1");
     c.RoutePrefix = "";
 });
 
