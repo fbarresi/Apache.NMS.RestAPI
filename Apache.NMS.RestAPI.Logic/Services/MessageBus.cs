@@ -43,11 +43,11 @@ public class MessageBus : IMessageBus, IDisposable
 
     public Task StartAsync()
     {
-        CreateConnection();
-
         reconnectSubject
+            .StartWith(Unit.Default)
             .Throttle(TimeSpan.FromSeconds(3))
             .Do(_ => CreateConnection())
+            .LogAndRetryAfterDelay(logger, TimeSpan.FromSeconds(5), "Error while creating connection")
             .Subscribe()
             .AddDisposableTo(disposables);
 
@@ -73,6 +73,7 @@ public class MessageBus : IMessageBus, IDisposable
         catch (Exception e)
         {
             logger.LogError(e, "Error while starting message bus service");
+            throw;
         }
     }
 

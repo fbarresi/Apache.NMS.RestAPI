@@ -70,7 +70,9 @@ builder.Services.AddMvcCore().AddMetricsCore();
 
 //
 
-builder.Host.UseWindowsService();
+builder.Host
+    .UseWindowsService()
+    .UseSystemd();
 
 
 //
