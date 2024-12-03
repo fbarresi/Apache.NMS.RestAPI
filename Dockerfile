@@ -7,9 +7,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Apache.NMS.RestAPI/Apache.NMS.RestAPI.csproj", "Apache.NMS.RestAPI/"]
-COPY ["Apache.NMS.RestAPI.Interfaces/Apache.NMS.RestAPI.Interfaces.csproj", "Apache.NMS.RestAPI.Interfaces/"]
-COPY ["Apache.NMS.RestAPI.Logic/Apache.NMS.RestAPI.Logic.csproj", "Apache.NMS.RestAPI.Logic/"]
+COPY . .
 RUN dotnet restore "Apache.NMS.RestAPI/Apache.NMS.RestAPI.csproj"
 COPY . .
 WORKDIR "/src/Apache.NMS.RestAPI"
