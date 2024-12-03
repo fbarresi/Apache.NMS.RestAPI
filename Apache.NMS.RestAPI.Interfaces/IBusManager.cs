@@ -1,4 +1,5 @@
-﻿using Apache.NMS.RestAPI.Interfaces.Services;
+﻿using System.Collections.Generic;
+using Apache.NMS.RestAPI.Interfaces.Services;
 
 namespace Apache.NMS.RestAPI.Interfaces
 {
@@ -6,5 +7,6 @@ namespace Apache.NMS.RestAPI.Interfaces
     {
         IMessageBus GetMessageBusByName(string name);
         string GetDestinationByName(string name);
+        Dictionary<string, bool> States { get; }
     }
 }

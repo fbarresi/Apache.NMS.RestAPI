@@ -35,10 +35,14 @@ public class MessageBus : IMessageBus, IDisposable
     private readonly Subject<Unit> reconnectSubject = new();
     private readonly CompositeDisposable disposables = new();
 
+    public bool Running => connection?.IsStarted ?? false;
+    
     public MessageBus(ILogger<MessageBus> logger, MessageBusSessionSettings settings)
     {
         this.logger = logger;
         this.settings = settings;
+        
+        
     }
 
     public Task StartAsync()

@@ -47,4 +47,3 @@ public class DataController : ControllerBase
         return messageBus.Subscribe(destination, messageDto.NumberOfEvents, messageDto.Timeout, token);
     }
 }
-

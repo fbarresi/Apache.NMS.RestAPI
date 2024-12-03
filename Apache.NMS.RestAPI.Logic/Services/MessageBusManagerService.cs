@@ -83,4 +83,6 @@ public class MessageBusManagerService : BackgroundService, IBusManager
         }
         return destination;
     }
+
+    public Dictionary<string, bool> States => connections.ToDictionary(pair => pair.Key, pair => pair.Value.Running);
 }
